@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER": "bini",
+        "MONGO_PASSWORD": "biniMongo",
+        "MONGO_DB": "event-booking-api"
+    }
+}
