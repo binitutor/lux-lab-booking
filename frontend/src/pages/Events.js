@@ -75,7 +75,7 @@ class EventsPage extends Component {
 
     const token = this.context.token;
 
-    fetch('http://localhost:8000/graphql', {
+    fetch('http://localhost:8080/luxlab', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -134,7 +134,7 @@ class EventsPage extends Component {
         `
     };
 
-    fetch('http://localhost:8000/graphql', {
+    fetch('http://localhost:8080/luxlab', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -189,7 +189,7 @@ class EventsPage extends Component {
         }
     };
 
-    fetch('http://localhost:8000/graphql', {
+    fetch('http://localhost:8080/luxlab', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
