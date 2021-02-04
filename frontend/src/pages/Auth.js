@@ -64,7 +64,7 @@ class AuthPage extends Component {
       };
     }
 
-    fetch('http://localhost:8000/graphql', {
+    fetch('http://localhost:8080/luxlab', {
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

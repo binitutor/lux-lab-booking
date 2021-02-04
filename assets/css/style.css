@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,500;1,700;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  /*width: 50rem;*/
+  width: auto;
+  height: 30rem;
+  background-color: #222227;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.month {
+  width: 100%;
+  height: 6rem;
+  background-color: #167e56;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.month p {
+  font-size: 1rem;
+}
+
+.weekdays {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.weekdays div {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  width: calc(44rem / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.1rem;
+}
+
+.days div {
+  font-size: 1rem;
+  width: calc(44rem / 7);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today) {
+  background-color: #262626;
+  border: 0.2rem solid #777;
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  background-color: #167e56;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+  .calendar {
+    width: 40rem;
+    height: 25rem;
+  }
+
+  .days div {
+    font-size: 0.8rem;
+    width: calc(39rem / 7);
+    height: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .calendar {
+    width: 35rem;
+    height: 20rem;
+  }
+  .month {
+    height: 3rem;
+  }
+  .month i {
+    font-size: 1rem;
+  }
+  .month h1 {
+    font-size: 0.8rem;
+    margin-top: .8rem;
+  }
+
+  .month p {
+    font-size: 0.5rem;
+  }
+
+  .days div {
+    font-size: 0.8rem;
+    width: calc(34rem / 7);
+    height: 2.3rem;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .calendar {
+    width: 25rem;
+    height: 15rem;
+  }
+
+  .weekdays {
+    height: 2rem;
+    padding: 0 0.1rem;
+  }
+
+  .weekdays div {
+    font-size: 0.6rem;
+    width: calc(25rem / 7);
+  }
+
+  .days div {
+    font-size: 0.6rem;
+    width: calc(24rem / 7);
+    height: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
