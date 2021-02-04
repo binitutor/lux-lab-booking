@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lux Lab Booking</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- styling -->
+	<script src="https://kit.fontawesome.com/cf4bf43f9b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+
+    <!-- scripts -->
+    <script src="assets/js/datePicker.js"></script>
+    <script src="assets/js/datePickerWidget.js"></script>
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+
+    <!-- use knockout js for data binding -->
+    <script src="assets/js/knockout-3.4.2.js"></script>
+
+    <!-- create booking script -->
+    <script src="assets/js/createBookingScript.js"></script>
+
+    <!-- get booking script -->
+    <script src="assets/js/getBookingScript.js"></script>
+</head>
+<body>
+	<div class="container mt-4">
+		<!-- banner -->
+        <h1 class="display-4 text-center">
+			<i class="fas fa-book-open text-primary"></i>
+			<span class="text-primary">Lux Lab</span> Booking
+		</h1>
+		
+        <div class="mb-5"><hr/></div>
+
+
+        <div class="row">
+            <div class="col-4">
+                <!-- display open hours -->
+                <table class="table table-striped mt-5 mb-5" id="hourTable">
+                    <h3 class="text-center">Open hours</h3>
+                    <div>
+                        Search Key(Book ID):
+                        <input type="text" id="txtSearchKey" data-bind="value : searchKey"/>
+                    </div>
+                    <thead>
+                        <th>Booked ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <!-- <th></th> -->
+                    </thead>
+                    <tbody id="CustomerDetails" class="bookList"> <!-- id="bookList"  -->
+                        <tr>
+                            <td>
+                                <label id="bookId" data-bind="text: bookId"/> 
+                            </td>
+                            <td>
+                                <label id="bookDate" data-bind="text: bookDate"/> 
+                            </td>
+                            <td>
+                                <label id="bookTime" data-bind="text: bookTime"/> 
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="3">
+                                <input type="button" 
+                                    value="Get Booking Details" 
+                                    data-bind="click: $root.getBookingDetails()"
+                                    class="btn btn-primary btn-block"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="mb-5"><hr/></div>
+
+
+                <!-- create open hours -->
+                
+                <h3 class="display-5 text-center">Create Booking</h3>
+       
+                <form id="bookingCreationForm">
+                    
+                    <p>Enter date and time open for booking.</p>
+                    
+                    <div class="form-group">
+                        <label for="text">Booking ID</label>
+                        <input type="text" 
+                            id="bookId" data-bind='value: BookID'
+                            class="form-control" placeholder="enter creator ID: xxxxx (5 digits)" 
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Pick a Date</label>
+                        <input type="date" 
+                            id="bookDateForm" 
+                            data-bind='value: BookDate'
+                            class="form-control" placeholder="Select a date" 
+                        />
+
+                        <span style ="color: darkolivegreen" data-bind='text : SuccessMessage' />
+
+                    </div>
+
+                    
+                    <div class="form-group mb-4">
+                        <label for="time">Pick a Time</label>
+                        <select name="cars" type="text" 
+                            id="bookTimeForm" 
+                            data-bind='value: BookTime'
+                            class="form-control"
+                        >
+                            <option value="">Select a time</option>
+                            <option value="8:00am - 9:00am">8:00am - 9:00am</option>
+                            <option value="9:00am - 10:00am">9:00am - 10:00am</option>
+                            <option value="10:00am - 11:00am">10:00am - 11:00am</option>
+                            <option value="11:00am - 12:00pm">11:00am - 12:00pm</option>
+                            <option value="12:00pm - 1:00pm">12:00pm - 1:00pm</option>
+                            <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
+                            <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
+                            <option value="3:00pm - 4:00pm">3:00pm - 4:00pm</option>
+                            <option value="4:00pm - 5:00pm">4:00pm - 5:00pm</option>
+                            <option value="5:00pm - 6:00pm">5:00pm - 6:00pm</option>
+                            <option value="6:00pm - 7:00pm">6:00pm - 7:00pm</option>
+                            <option value="7:00pm - 8:00pm">7:00pm - 8:00pm</option>
+                        </select>
+
+                        <span style ="color: darkolivegreen" data-bind='text : SuccessMessage' />
+
+                    </div>
+
+                    <input type="submit" 
+                        value="Create Booking" 
+                        data-bind="click: $root.SaveBookingDetails"
+                        class="btn btn-primary btn-block"
+                    >
+                </form>
+            </div>
+
+            <!-- calendar -->
+            <div class="col-8">
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fas fa-angle-left prev"></i>
+                        <div class="date">
+                            <h1>February</h1>
+                            <p>Tue Feb 2, 2021</p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
+                    </div>
+
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+
+                    <div class="days"></div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="mb-5"><hr/></div>
+	</div>
+    <!-- local storage -->
+	<script src="assets/js/script.js"></script>
+    <script src="assets/js/calendar.js"></script>
+         
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
